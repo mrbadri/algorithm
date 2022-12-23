@@ -25,7 +25,6 @@ def is_round(num):
 
 def increase():
     num = int(input())
-    num = int(num)
     while True:
         if(is_round(num)): 
             print(num)
