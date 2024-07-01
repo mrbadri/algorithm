@@ -1,5 +1,3 @@
-# example.py
-
 def bunarySearch(nums , target):
     firstPoint, endPoint = 0  , len(nums) - 1
 
