@@ -13,14 +13,24 @@ class HashTable {
       hash += char.charCodeAt(0);
     }
 
-    return {
-      hash,
-      index: hash % this.size,
-    };
+    return hash % this.size;
+  }
+
+  set(key, value) {
+    const index = this.hash(key);
+    for (let pair of this.table[index]) {
+      if (pair[0] === key) {
+        pair[1] = value;
+        return;
+      }
+    }
+    this.table[index].push([key, value]);
   }
 }
 
-const hasTable = new HashTable(10);
+const hashTable = new HashTable(10);
 
-console.log(hasTable.hash("ab"));
-console.log(hasTable.hash("ba"));
+console.log(hashTable.hash("ab"));
+console.log({ hashTable });
+hashTable.set("ab", 1234);
+console.log({ hashTable });
