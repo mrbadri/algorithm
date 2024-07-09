@@ -26,11 +26,29 @@ class HashTable {
     }
     this.table[index].push([key, value]);
   }
+
+  get(key) {
+    const index = this.hash(key);
+    const point = this.table[index];
+    console.log("point", point);
+    for (let pair of this.table[index]) {
+      if (pair[0] === key) {
+        return pair[1];
+      }
+    }
+    return undefined;
+  }
 }
 
 const hashTable = new HashTable(10);
 
-console.log(hashTable.hash("ab"));
-console.log({ hashTable });
+// console.log(hashTable.hash("ab"));
+// console.log({ hashTable });
 hashTable.set("ab", 1234);
-console.log({ hashTable });
+hashTable.set("ba", 1234);
+console.log(hashTable[hashTable.hash("ab")]);
+hashTable.set("bac", 2111);
+hashTable.set("bac", 2111);
+
+console.log("get", hashTable.get("ab"));
+// console.log({ hashTable });
