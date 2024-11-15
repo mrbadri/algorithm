@@ -12,7 +12,7 @@ const swap = (arr, i, j) => {
   // return arr;
 };
 
-const bubbelSort = (arr) => {
+const bubbleSort = (arr) => {
   for (let i = 0; i < arr.length; i++) {
     let swapped = false;
 
@@ -36,6 +36,6 @@ const arr = [1, 34, 2, 13, 89, 2];
 
 console.log("=== Result ===");
 
-console.log(bubbelSort(arr));
+console.log(bubbleSort(arr));
 
 console.log("===> End Script");

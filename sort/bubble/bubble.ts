@@ -13,7 +13,7 @@ const swap = <T>(
   return tempArr;
 };
 
-const bubbelSort = <T extends number>(arr: T[]) => {
+const bubbleSort = <T extends number>(arr: T[]) => {
   let result = [...arr];
   for (let i = 0; i < arr.length; i++) {
     let swapped = false;
@@ -38,7 +38,7 @@ const bubbelSort = <T extends number>(arr: T[]) => {
 
 const arr: number[] = [32, 112, 1, 4321, 21, 5];
 
-const result = bubbelSort(arr);
+const result = bubbleSort(arr);
 
 // Step 1: Extend the Array interface
 // interface TestB<T> {

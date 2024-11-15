@@ -1,8 +1,8 @@
 interface Array<T> {
-  bubbel: () => T[];
+  bubble: () => T[];
 }
 
-Array.prototype.bubbel = function <T>(this: T[]): T[] {
+Array.prototype.bubble = function <T>(this: T[]): T[] {
   if (this.length === 0) return this;
 
   const swap = (arr: T[], current: number, target: number) => {
@@ -29,4 +29,4 @@ Array.prototype.bubbel = function <T>(this: T[]): T[] {
   return this;
 };
 
-console.log([101, -2, 30, 12, 1, 43].bubbel());
+console.log([101, -2, 30, 12, 1, 43].bubble());
