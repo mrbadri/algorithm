@@ -1,33 +1,52 @@
-console.log("Hi");
-
 const selectionSort = (arr: number[]) => {
-  const result = [];
+  const n = arr.length;
 
-  for (let i = 0; i < arr.length; i++) {
-    let lowest = Infinity;
-    let index = 0;
+  for (let i = 0; i < n - 1; i++) {
+    let minIndex = i;
 
-    console.log("Arr=> ", arr, lowest);
-
-    for (let j = 0; j < arr.length; j++) {
-      console.log(arr[j] < lowest, arr[j], lowest);
-
-      if (arr[j] < lowest) {
-        lowest = arr[j];
-        index = j;
+    for (let j = i + 1; j < n; j++) {
+      if (arr[minIndex] > arr[j]) {
+        minIndex = j;
       }
     }
 
-    arr.splice(index, 1, Infinity);
-
-    result.push(lowest);
-
-    console.log(lowest, arr);
+    // Swap
+    if (i !== minIndex) {
+      [arr[minIndex], arr[i]] = [arr[i], arr[minIndex]];
+    }
   }
-  return result;
+
+  return arr;
 };
 
-const a = [1, 2, 3, 4];
-// console.log(a.splice(1, 1), a);
+// [2, 1, 4, 10];
+// [1, 2, 4, 10]
+// [1, 30, 4, 10]
+// [1, 4, 30, 10]
+
+// const selectionSort = (arr: number[]) => {
+//   for (let i = 0; i < arr.length; i++) {
+//     let lowest = Infinity;
+//     let index = 0;
+
+//     for (let j = i; j < arr.length; j++) {
+//       if (arr[j] < lowest) {
+//         lowest = arr[j];
+//         index = j;
+//       }
+//     }
+
+//     // swap(true, arr, i, index);
+
+//     const temp = arr[index];
+//     arr[index] = arr[i];
+//     arr[i] = temp;
+//   }
+
+//   return arr;
+// };
+
+// const a = [1, 2, 3, 4];
+// // console.log(a.splice(1, 1), a);
 
 console.log(selectionSort([32, 12, 1, 321, 2]));
